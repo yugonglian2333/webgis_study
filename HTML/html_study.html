@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>女神异闻录_atlus</title>
+  </head>
+  <body>
+    <h1 algin="center">一级标题</h1>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
+    <h5></h5>
+    <h6></h6>
+    <p>段落<br />标签</p>
+    <hr color="red" size="5" width="100%" />
+    <img
+      src="https://www.baidu.com/img/bd_logo1.png"
+      alt="百度logo"
+      width="300"
+      title="点击"
+    />
+    <!-- 图片一般只规定宽度 -->
+
+    <a href="https://www.baidu.com" target="_blank"><strong>百度</strong></a>
+    <!-- 超链接 -->
+    <img src="../IMG/月光馆.jpg" alt="月光馆" width="800px" />
+    <audio
+      src="../AUDIO/Lyn - Life Will Change.mp3"
+      controls
+      loop
+    ></audio>
+    <video src="../VIDEO/p3r.mp4" controls loop muted autoplay></video>
+    <ul>
+      <li>雨宫莲</li>
+      <li>结成理</li>
+      <li>鸣上悠</li>
+      <li>哈姆子</li>
+    </ul>
+    <ol>
+      <li>雨宫莲</li>
+      <li>结成理</li>
+      <li>鸣上悠</li>
+      <li>哈姆子</li>
+    </ol>
+    <dl>
+      <dt>女神异闻录3</dt>
+      <dd>结成理</dd>
+      <dd>油咖喱</dd>
+      <dd>美鹤</dd>
+      <dd>艾葵司</dd>
+      <dt>女神异闻录4</dt>
+      <dd>鸣上悠</dd>
+      <dd>花村阳介</dd>
+      <dd>天城雪子</dd>
+      <dd>久慈川理世</dd>
+      <dt>女神异闻录5</dt>
+      <dd>雨宫莲</dd>
+      <dd>龙司</dd>
+      <dd>高卷杏</dd>
+      <dd>舞见妙</dd>
+    </dl>
+
+    <table border="1">
+      <!-- 表头 -->
+      <tr>
+        <th>姓名</th>
+        <th>所属作品</th>
+        <th>人格面具</th>
+      </tr>
+      <!-- 表格内容 -->
+      <tr>
+        <td>结成理</td>
+        <td>女神异闻录3</td>
+        <td>塔纳托斯</td>
+      </tr>
+      <tr>
+        <td>鸣上悠</td>
+        <td>女神异闻录4</td>
+        <td>伊西斯</td>
+      </tr>
+      <tr>
+        <td>雨宫莲</td>
+        <td>女神异闻录5</td>
+        <td>阿尔达</td>
+      </tr>
+
+    </table>
+
+    <!-- <form> 元素用于创建表单，action 属性定义了表单数据提交的目标 URL，method 属性定义了提交数据的 HTTP 方法（这里使用的是 "post"）。 -->
+    <form action="#" method="post">
+      <label for="username">尊姓大名：</label>
+      <input type="text" id="username" name="username" placeholder="你的名字是？"/>
+      <br />
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password" placeholder="别给人看到哦" />
+      <br />
+      <input type="radio" name="gender" value="male" id="male" checked/>
+      <label for="gender">男</label>
+      <input type="radio" name="gender" value="female" id="female" />
+      <label for="gender">女</label>
+      <br />
+      <!-- 上传文件 -->
+      <input type="file" name="file" id="file" multiple />
+      <br />
+      <input type="checkbox" name="persona" id="persona1"  checked/>
+      <label for="persona1">结成理</label>
+      <input type="checkbox" name="persona" id="persona2"  />
+      <label for="persona2">鸣上悠</label>
+      <input type="checkbox" name="persona" id="persona3"  />
+      <label for="persona3">雨宫莲</label>
+      <br />
+      <!-- 下拉菜单 -->
+、
+       <select name="game" id="game" size="1">
+        <option value="p3">女神异闻录3</option>
+        <option value="p4">女神异闻录4</option>
+        <option value="p5" selected>女神异闻录5</option>
+      </select>
+      <br />
+
+      <!--文本域  -->
+      <textarea name="comment" id="comment" cols="30" rows="10" placeholder="留下你的评论"></textarea>
+      <br />
+      <input type="submit" value="提交" />
+
+      <!-- 按钮 -->
+      <button type="button">按钮</button>
+      <button type="reset">重置</button>  //重置整个表单
+      <!-- 以下两种都是提交 -->
+      <button type="submit">提交</button>
+      <button >提交</button>  
+
+      
+
+    </form>
+
+    <!-- div大格子 -->
+    <div>
+      <p>这是一个div</p>
+      <p>这是一个div</p>
+    </div>
+    <!-- span小格子  -->  
+    <span>这是一个span</span>
+    <span>这是一个span</span>
+    
+    <iframe src="https://www.baidu.com" width="100%" height="500px" frameboder = ></iframe>
+
+  </body>
+</html>
