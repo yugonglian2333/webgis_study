@@ -1,0 +1,43 @@
+/* 
+首页的css样式
+author：yugonglian
+date：2025-3-8
+*/
+
+/* 版心居中 */
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'Arial', 'sans-serif';
+    background-color: #f5f5f5;
+}
+
+/* 头部 */
+.header {
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 头部的版心 */
+.header .wrapper {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+/* logo */
+.logo a{
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-image: url(../IMG/icon/ditu.png);
+    background-repeat: no-repeat;
+    /* 填充 */
+    background-size: cover;
+    /* 隐藏文字 */
+    font-size: 0;
+}
+

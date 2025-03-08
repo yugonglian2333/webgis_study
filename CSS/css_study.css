@@ -1,0 +1,24 @@
+/* 
+  author:yugonglian
+  date:2025-3-8
+
+*/
+
+.felx-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.felx-item .felx-container div{
+  width: 100px;
+  height: 100px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
