@@ -1,31 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>b站课程小项目</title>
-  <!-- 先清除默认的设置，再搞css样式 -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/index.css">
-
-</head>
-<body>
-  <!-- header头部-->
-   <div class="header">
-    <!-- 版心 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>b站课程小项目</title>
+    <!-- 先清除默认的设置，再搞css样式 -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="./icon/iconfont.css">
+  </head>
+  <body>
+    <!-- header头部-->
+    <div class="header">
+      <!-- 版心 -->
       <div class="wrapper">
         <!-- logo -->
         <div class="logo">
           <h1><a href="#">home</a></h1>
         </div>
         <!-- 导航 -->
-        <div class="nav">导航</div>
-        <!-- 搜索 -->
-        <div class="search">搜索</div>
-        <!-- 用户 -->
-        <div class="user">用户</div>
+        <div class="nav">
+          <ul>
+            <li><a href="#" class="active">首页</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="#">职业规划</a></li>
+          </ul>
+        </div>
 
+        <!-- 搜索 -->
+        <div class="search">
+          <div class="search">
+            <input type="text" placeholder="输入关键字搜索" /><a href="#"></a>
+          </div>
+        </div>
+        <!-- 用户:头像+昵称 -->
+        <div class="user">
+          <a href=""
+            ><img src="./IMG/icon/VR.png" alt="用户头像" /><span
+              >username</span
+            ></a
+          >
+        </div>
       </div>
-   </div>
-</body>
+    </div>
+
+    <!-- banner区域 -->
+    <div class="banner">
+      <div class="wrapper">
+        <!-- 左侧 -->
+        <div class="left">
+          <ul>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+            <li><a href="#">前端开发</a></li>
+          </ul>
+        </div>
+        <!-- 右侧 -->
+        <div class="right">
+          <h3>我的课程表</h3>
+          <div class="content">
+            <dl>
+              <dt>数据可视化课程</dt>
+              <dd>
+                <span>正在学习</span><span><strong>前端三剑客</strong></span>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt>数据可视化课程</dt>
+              <dd>
+                <span>正在学习</span><span><strong>前端三剑客</strong></span>
+              </dd>
+            </dl>
+            
+            <dl>
+              <dt>数据可视化课程</dt>
+              <dd>
+                <span>正在学习</span><span><strong>前端三剑客</strong></span>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 精品推荐 -->
+    <div class="recommend">
+      <h3></h3>
+      <ul></ul>
+      <a href="" class="modify"></a>
+    </div>
+
+    <!-- 轮播图 -->
+    <div class="Carousel">
+      <div class="wrapper">
+        <!-- 1、图 -->
+        <ul>
+          <li><img src="./IMG/月光馆.jpg" alt="" /></li>
+          <li><img src="./IMG/p3r月球.jpg" alt="" /></li>
+        </ul>
+
+        <!-- 2、箭头 -->
+         <!-- 上一张 -->
+         <a href="#" class="prev">&#8592</a>
+         <!-- 下一张 -->
+         <a href="#" class="next">&#8594</a>  
+
+        <!-- 圆点 -->
+         <ol>
+          <li></li>
+          <li class="active"></li>
+          <li></li>
+         </ol>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="footer">
+      <div class="wrapper">
+        <p>版权所有：yugonglian</p>
+        <p>备案号：123456789</p>
+      </div>
+
+    <!-- icon测试 -->
+    <span style="font-size: 30px;color: blueviolet;
+        " class="iconfont icon-shangdian"></span>
+   
+  </body>
 </html>

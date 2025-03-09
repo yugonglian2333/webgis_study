@@ -1,0 +1,254 @@
+{
+  "id": "4851011",
+  "name": "webgis",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3853670",
+      "name": "网关",
+      "font_class": "wangguan",
+      "unicode": "eb69",
+      "unicode_decimal": 60265
+    },
+    {
+      "icon_id": "3853671",
+      "name": "洗衣机",
+      "font_class": "xiyiji",
+      "unicode": "eb6a",
+      "unicode_decimal": 60266
+    },
+    {
+      "icon_id": "3853673",
+      "name": "消毒柜",
+      "font_class": "xiaodugui",
+      "unicode": "eb6b",
+      "unicode_decimal": 60267
+    },
+    {
+      "icon_id": "3853674",
+      "name": "信号",
+      "font_class": "xinhao",
+      "unicode": "eb6c",
+      "unicode_decimal": 60268
+    },
+    {
+      "icon_id": "3853675",
+      "name": "影音",
+      "font_class": "yingyin",
+      "unicode": "eb6d",
+      "unicode_decimal": 60269
+    },
+    {
+      "icon_id": "3853676",
+      "name": "云端数据",
+      "font_class": "yunduanshuju",
+      "unicode": "eb6e",
+      "unicode_decimal": 60270
+    },
+    {
+      "icon_id": "3853677",
+      "name": "游戏",
+      "font_class": "youxi",
+      "unicode": "eb6f",
+      "unicode_decimal": 60271
+    },
+    {
+      "icon_id": "3853678",
+      "name": "智能锁",
+      "font_class": "zhinengsuo",
+      "unicode": "eb70",
+      "unicode_decimal": 60272
+    },
+    {
+      "icon_id": "3853679",
+      "name": "智能手表",
+      "font_class": "zhinengshoubiao",
+      "unicode": "eb71",
+      "unicode_decimal": 60273
+    },
+    {
+      "icon_id": "3853680",
+      "name": "CD",
+      "font_class": "CD",
+      "unicode": "eb72",
+      "unicode_decimal": 60274
+    },
+    {
+      "icon_id": "3853681",
+      "name": "VR",
+      "font_class": "VR",
+      "unicode": "eb73",
+      "unicode_decimal": 60275
+    },
+    {
+      "icon_id": "3853688",
+      "name": "城市",
+      "font_class": "chengshi",
+      "unicode": "eb74",
+      "unicode_decimal": 60276
+    },
+    {
+      "icon_id": "6919227",
+      "name": "世界",
+      "font_class": "shijie",
+      "unicode": "ecb9",
+      "unicode_decimal": 60601
+    },
+    {
+      "icon_id": "3853647",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "eb53",
+      "unicode_decimal": 60243
+    },
+    {
+      "icon_id": "3853648",
+      "name": "笔记本",
+      "font_class": "bijiben",
+      "unicode": "eb54",
+      "unicode_decimal": 60244
+    },
+    {
+      "icon_id": "3853649",
+      "name": "灯",
+      "font_class": "deng",
+      "unicode": "eb55",
+      "unicode_decimal": 60245
+    },
+    {
+      "icon_id": "3853650",
+      "name": "地图",
+      "font_class": "ditu",
+      "unicode": "eb56",
+      "unicode_decimal": 60246
+    },
+    {
+      "icon_id": "3853651",
+      "name": "安全",
+      "font_class": "anquan",
+      "unicode": "eb57",
+      "unicode_decimal": 60247
+    },
+    {
+      "icon_id": "3853653",
+      "name": "高铁",
+      "font_class": "gaotie",
+      "unicode": "eb58",
+      "unicode_decimal": 60248
+    },
+    {
+      "icon_id": "3853654",
+      "name": "飞机",
+      "font_class": "feiji",
+      "unicode": "eb59",
+      "unicode_decimal": 60249
+    },
+    {
+      "icon_id": "3853655",
+      "name": "共享单车",
+      "font_class": "gongxiangdanche",
+      "unicode": "eb5a",
+      "unicode_decimal": 60250
+    },
+    {
+      "icon_id": "3853656",
+      "name": "搅拌机",
+      "font_class": "jiaobanji",
+      "unicode": "eb5b",
+      "unicode_decimal": 60251
+    },
+    {
+      "icon_id": "3853657",
+      "name": "工场",
+      "font_class": "gongchang",
+      "unicode": "eb5c",
+      "unicode_decimal": 60252
+    },
+    {
+      "icon_id": "3853658",
+      "name": "节能",
+      "font_class": "jieneng",
+      "unicode": "eb5d",
+      "unicode_decimal": 60253
+    },
+    {
+      "icon_id": "3853659",
+      "name": "咖啡机",
+      "font_class": "kafeiji",
+      "unicode": "eb5e",
+      "unicode_decimal": 60254
+    },
+    {
+      "icon_id": "3853660",
+      "name": "景点",
+      "font_class": "jingdian",
+      "unicode": "eb5f",
+      "unicode_decimal": 60255
+    },
+    {
+      "icon_id": "3853661",
+      "name": "模组",
+      "font_class": "mozu",
+      "unicode": "eb60",
+      "unicode_decimal": 60256
+    },
+    {
+      "icon_id": "3853662",
+      "name": "轮船",
+      "font_class": "lunchuan",
+      "unicode": "eb61",
+      "unicode_decimal": 60257
+    },
+    {
+      "icon_id": "3853663",
+      "name": "扫码支付",
+      "font_class": "saomazhifu",
+      "unicode": "eb62",
+      "unicode_decimal": 60258
+    },
+    {
+      "icon_id": "3853664",
+      "name": "扫地机",
+      "font_class": "saodiji",
+      "unicode": "eb63",
+      "unicode_decimal": 60259
+    },
+    {
+      "icon_id": "3853665",
+      "name": "人脸识别",
+      "font_class": "renlianshibie",
+      "unicode": "eb64",
+      "unicode_decimal": 60260
+    },
+    {
+      "icon_id": "3853666",
+      "name": "汽车",
+      "font_class": "qiche",
+      "unicode": "eb65",
+      "unicode_decimal": 60261
+    },
+    {
+      "icon_id": "3853667",
+      "name": "摄像头",
+      "font_class": "shexiangtou",
+      "unicode": "eb66",
+      "unicode_decimal": 60262
+    },
+    {
+      "icon_id": "3853668",
+      "name": "商店",
+      "font_class": "shangdian",
+      "unicode": "eb67",
+      "unicode_decimal": 60263
+    },
+    {
+      "icon_id": "3853669",
+      "name": "声波",
+      "font_class": "shengbo",
+      "unicode": "eb68",
+      "unicode_decimal": 60264
+    }
+  ]
+}
