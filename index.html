@@ -2,10 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- 视口标签 -->
+    <!-- 设置视窗等于设备的逻辑分辨率 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>b站课程小项目</title>
+    <!-- 优化搜索引擎 -->
+    <meta name="description" content="人格面具使者是会相互吸引的，欢迎来到女神异闻录的大家庭~这里有一切关于女神异闻录（perosna）的内容哦" />
+    <meta name="keywords" content="女神异闻录,persona,atlus,雨宫莲,结成理,鸣上悠,女神异闻录5,女神异闻录3,女神异闻录4" />
+    <title>心之怪盗团</title>
+    <!-- favicon -->
+    <link rel="  icon" href="./favicon.ico" />
     <!-- 先清除默认的设置，再搞css样式 -->
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" media="all" href="css/base.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="./icon/iconfont.css">
   </head>
@@ -22,8 +29,9 @@
         <div class="nav">
           <ul>
             <li><a href="#" class="active">首页</a></li>
-            <li><a href="#">课程</a></li>
-            <li><a href="#">职业规划</a></li>
+            <li><a href="./HTML/html_study.html">HTML学习</a></li>
+            <li><a href="./HTML/css_study.html">CSS学习</a></li>
+            <li><a href="#">Viewport学习</a></li>
           </ul>
         </div>
 
@@ -120,13 +128,55 @@
          </ol>
       </div>
     </div>
+    <!-- 走马灯 -->
+    <div class="marquee">
+      <div class="wrapper">
+        <ul>
+          <li><img src="./IMG/总攻击雨宫莲.png"></li>
+          <li><img src="./IMG/总攻击高卷杏.png"></li>
+          <li><img src="./IMG/总攻击龙司.png"></li>
+          <li><img src="./IMG/总攻击喜多川.png"></li>
+          <li><img src="./IMG/总攻击新岛真.png"></li>
+          <li><img src="./IMG/总攻击奥村春.png"></li>
+          <li><img src="./IMG/总攻击双叶.png"></li>
+          <li><img src="./IMG/总攻击摩纳.png"></li>
+          <li><img src="./IMG/总攻击明智.png"></li>
+          <li><img src="./IMG/总攻击雨宫莲.png"></li>
+          <li><img src="./IMG/总攻击高卷杏.png"></li>
+          <li><img src="./IMG/总攻击龙司.png"></li>
+        </ul>
+
+
+      </div>
+    </div>
+    <!-- 动画 -->
+    <div class="transform">
+      <div class="wrapper">
+        <!-- 平面转换 -->
+        <div class="img plane" >
+          <img src="./IMG/心之怪盗团.png" alt="心之怪盗团">
+        </div>
+        <!-- 立体转换 -->
+        <div class="img threeDimensional" >
+          <img src="./IMG/心之怪盗团.png" alt="心之怪盗团">
+        </div>
+        <!-- 立体呈现 -->
+        <div class="threeDimensionalShow" >
+          <div class="img" id="under"><img src="./IMG/心之怪盗团.png" alt="心之怪盗团"></div>
+          <div class="img" id="above" ><img src="./IMG/心之怪盗团.png" alt="心之怪盗团"></div>
+          
+        </div>
+      </div>
+    </div>  
 
     <!-- 版权 -->
     <div class="footer">
       <div class="wrapper">
-        <p>版权所有：yugonglian</p>
-        <p>备案号：123456789</p>
+        <p>版权所有：@yugonglian</p>
+        <p>备案号：114514</p>
       </div>
+    </div>
+
 
     <!-- icon测试 -->
     <span style="font-size: 30px;color: blueviolet;
