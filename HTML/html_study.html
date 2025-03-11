@@ -25,11 +25,7 @@
     <a href="https://www.baidu.com" target="_blank"><strong>百度</strong></a>
     <!-- 超链接 -->
     <img src="../IMG/月光馆.jpg" alt="月光馆" width="800px" />
-    <audio
-      src="../AUDIO/Lyn - Life Will Change.mp3"
-      controls
-      loop
-    ></audio>
+    <audio src="../AUDIO/Lyn - Life Will Change.mp3" controls loop></audio>
     <video src="../VIDEO/p3r.mp4" controls loop muted autoplay></video>
     <ul>
       <li>雨宫莲</li>
@@ -84,18 +80,27 @@
         <td>女神异闻录5</td>
         <td>阿尔达</td>
       </tr>
-
     </table>
 
     <!-- <form> 元素用于创建表单，action 属性定义了表单数据提交的目标 URL，method 属性定义了提交数据的 HTTP 方法（这里使用的是 "post"）。 -->
     <form action="#" method="post">
       <label for="username">尊姓大名：</label>
-      <input type="text" id="username" name="username" placeholder="你的名字是？"/>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="你的名字是？"
+      />
       <br />
       <label for="password">密码：</label>
-      <input type="password" id="password" name="password" placeholder="别给人看到哦" />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="别给人看到哦"
+      />
       <br />
-      <input type="radio" name="gender" value="male" id="male" checked/>
+      <input type="radio" name="gender" value="male" id="male" checked />
       <label for="gender">男</label>
       <input type="radio" name="gender" value="female" id="female" />
       <label for="gender">女</label>
@@ -103,16 +108,16 @@
       <!-- 上传文件 -->
       <input type="file" name="file" id="file" class="upfile" multiple />
       <br />
-      <input type="checkbox" name="persona" id="persona1"  checked/>
+      <input type="checkbox" name="persona" id="persona1" checked />
       <label for="persona1">结成理</label>
-      <input type="checkbox" name="persona" id="persona2"  />
+      <input type="checkbox" name="persona" id="persona2" />
       <label for="persona2">鸣上悠</label>
-      <input type="checkbox" name="persona" id="persona3"  />
+      <input type="checkbox" name="persona" id="persona3" />
       <label for="persona3">雨宫莲</label>
       <br />
       <!-- 下拉菜单 -->
 
-       <select name="game" id="game" size="1">
+      <select name="game" id="game" size="1">
         <option value="p3">女神异闻录3</option>
         <option value="p4">女神异闻录4</option>
         <option value="p5" selected>女神异闻录5</option>
@@ -120,19 +125,22 @@
       <br />
 
       <!--文本域  -->
-      <textarea name="comment" id="comment" cols="30" rows="10" placeholder="留下你的评论"></textarea>
+      <textarea
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="10"
+        placeholder="留下你的评论"
+      ></textarea>
       <br />
       <input type="submit" value="提交" />
 
       <!-- 按钮 -->
       <button type="button">按钮</button>
-      <button type="reset">重置</button>  //重置整个表单
+      <button type="reset">重置</button> //重置整个表单
       <!-- 以下两种都是提交 -->
       <button type="submit">提交</button>
-      <button >提交</button>  
-
-      
-
+      <button>提交</button>
     </form>
 
     <!-- div大格子 -->
@@ -140,11 +148,10 @@
       <p>这是一个div</p>
       <p>这是一个div</p>
     </div>
-    <!-- span小格子  -->  
+    <!-- span小格子  -->
     <span>这是一个span</span>
     <span>这是一个span</span>
-    
-    <iframe src="https://www.baidu.com" width="100%"  ></iframe>
 
+    <iframe src="https://www.baidu.com" width="100%"></iframe>
   </body>
 </html>
