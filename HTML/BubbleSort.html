@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>冒泡排序</title>
+  </head>
+  <body>
+    <script>
+      // 冒泡排序Bubble Sort
+      function bubbleSort(arr) {
+        let len = arr.length;
+        for (let i = 0; i < len - 1; i++) {
+          // 每次循环都会把最大的数放到最后
+          for (let j = 0; j < len - 1 - i; j++) {
+            // 比较相邻的两个数，如果前一个数比后一个数大，则交换位置
+            // 从小到大排序 ，第一次循环次数为len-1，第二次循环次数为len-2，以此类推
+            //＞：从小到大排序，＜：从大到小排序
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+        }
+        return arr;
+      }
+
+      // 分别是随机、顺序、逆序数组
+      document.write(
+        "随机数组:[1, 4, 52, 4, 6, 4, 2, 65, 34, 57, 545, 421, 435, 4656, 47, 867, 66,4213, 4, 5, 67, 6768, 7878, 6753,]" +
+          "<br>"
+      );
+      document.write(
+        "顺序数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]" +
+          "<br>"
+      );
+      document.write(
+        "逆序数组:[20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]" +
+          "<br>"
+      );
+      let choice = prompt("请选择想要排序的原始数组（随机、顺序还是逆序）：");
+      let arr_random = [
+        1, 4, 52, 4, 6, 4, 2, 65, 34, 57, 545, 421, 435, 4656, 47, 867, 66,
+        4213, 4, 5, 67, 6768, 7878, 6753,
+      ];
+      let arr_order = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ];
+      let arr_reverse = [
+        20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
+      ];
+      if (choice == "随机") {
+        document.write("随机数组排序后：" + bubbleSort(arr_random) + "<br>");
+      } else if (choice == "顺序") {
+        document.write("顺序数组排序后：" + bubbleSort(arr_order) + "<br>");
+      } else if (choice == "逆序") {
+        document.write("逆序数组排序后：" + bubbleSort(arr_reverse) + "<br>");
+      } else {
+        alert("输入错误，请重新输入！");
+      }
+    </script>
+  </body>
+</html>
