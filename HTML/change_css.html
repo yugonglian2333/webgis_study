@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刷新页面更改图片</title>
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 刷新浏览器页面更改图片 -->
+    <img src="../IMG/总攻击雨宫莲.png" alt="随机图片" />
+
+    <script>
+      const img = document.querySelector("img");
+      const randomImg = Math.floor(Math.random() * 3) + 1;
+      img.src = `../IMG/总攻击雨宫莲${randomImg}.png`;
+      img.style.backgroundColor = "blue";
+      // 暂时放弃
+    </script>
+  </body>
+</html>
+刷新页面更改图片

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>DOM 学习</h1>
+      <p>DOM(Document Object Model) Study</p>
+      <button onclick="changeText()">Change Text</button>
+    </div>
+
+    <script>
+      const h1 = document.querySelector("h1");
+      const p = document.querySelector("p");
+      console.log(h1);
+      console.log(p);
+
+      h1.style.color = "red";
+      p.style.color = "blue";
+
+      // 修改文字内容
+      function changeText() {
+        // 这种写法不会生效 因为textContent会将所有内容当做文本处理
+        // p.textContent = "<strong>Hello JavaScript</strong>";
+
+        // 这种写法会生效
+        h1.textContent = "Hello World";
+        p.textContent = "Hello JavaScript";
+
+        // 另一种写法
+        // h1.innerHTML = "Hello World";
+        // p.innerHTML = "Hello JavaScript";
+      }
+    </script>
+  </body>
+</html>
