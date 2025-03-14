@@ -12,6 +12,10 @@
       <button onclick="changeText()">Change Text</button>
     </div>
 
+    <div class="yuedu">
+      <input type="text" />
+    </div>
+
     <script>
       const h1 = document.querySelector("h1");
       const p = document.querySelector("p");
@@ -34,6 +38,11 @@
         // h1.innerHTML = "Hello World";
         // p.innerHTML = "Hello JavaScript";
       }
+      let i = 0;
+      // 定时器
+      setInterval(() => {
+        document.write(i++ + "<br>");
+      }, 200);
     </script>
   </body>
 </html>

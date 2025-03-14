@@ -130,10 +130,12 @@
         id="comment"
         cols="30"
         rows="10"
-        placeholder="留下你的评论"
+        placeholder="阅读用户协议案例"
       ></textarea>
       <br />
-      <input type="submit" value="提交" />
+      <button type="submit" class="button_textarea">阅读中</button>
+      <br />
+      <input type="submit" value="阅读中" />
 
       <!-- 按钮 -->
       <button type="button">按钮</button>
@@ -152,6 +154,34 @@
     <span>这是一个span</span>
     <span>这是一个span</span>
 
+    <!-- 复选框,搭配js的 -->
+    <br />
+    <input type="checkbox" name="persona" id="persona1" checked />
+    <label for="persona1">结成理</label>
+    <input type="checkbox" name="persona" id="persona2" />
+    <label for="persona2">鸣上悠</label>
+    <input type="checkbox" name="persona" id="persona3" />
+    <label for="persona3">雨宫莲</label>
     <iframe src="https://www.baidu.com" width="100%"></iframe>
+
+    <script>
+      // 通过id获取元素
+      const button_textarea = document.querySelector(".button_textarea");
+      // 设置按钮不可用
+      button_textarea.disabled = true;
+      let i = 5;
+      // 开启定时器5秒后设置按钮可用
+      let timer = setInterval(function () {
+        i--;
+        button_textarea.innerHTML = `阅读中(${i})秒`;
+
+        if (i === 0) {
+          clearInterval(timer);
+
+          button_textarea.disabled = false;
+          button_textarea.innerHTML = "同意";
+        }
+      }, 1000);
+    </script>
   </body>
 </html>

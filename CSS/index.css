@@ -6,360 +6,372 @@ date：2025-3-8
 
 /* 版心居中 */
 .wrapper {
-    width: 1200px;
-    margin: 0 auto;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 body {
-    font-family: 'Microsoft YaHei', 'Arial', 'sans-serif';
-    background-color: #f5f5f5;
+  font-family: "Microsoft YaHei", "Arial", "sans-serif";
+  background-color: #f5f5f5;
 }
 
 /* 头部 */
 .header {
-    height: 60px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 /* 头部的版心 */
 .header .wrapper {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 /* logo */
-.logo a{
-    display: block;
-    width: 60px;
-    height: 60px;
-    background-image: url(../IMG/icon/ditu.png);
-    background-repeat: no-repeat;
-    /* 填充 */
-    background-size: cover;
-    /* 隐藏文字 */
-    font-size: 0;
+.logo a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url(../IMG/icon/ditu.png);
+  background-repeat: no-repeat;
+  /* 填充 */
+  background-size: cover;
+  /* 隐藏文字 */
+  font-size: 0;
 }
 
 /* 导航 */
 .nav {
-     margin-left: 100px;
+  margin-left: 100px;
 }
 
 .nav ul {
-    display: flex;
-    justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav li {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .nav li a {
-    display: block;
-    padding:5px 5px;
-    line-height: 20px;
-    font-size: 19px;
+  display: block;
+  padding: 5px 5px;
+  line-height: 20px;
+  font-size: 19px;
 }
 /* active类选择器表示默认选中的a */
 .nav li .active,
 .nav li a:hover {
-    border-bottom: 2px solid #ff6700;
-    color: #ff6700;
+  border-bottom: 2px solid #ff6700;
+  color: #ff6700;
 }
 
 /* 搜索search */
 .search {
-    display: flex;
-    width: 400px;
-    height: 40px;
-    background-color: #f3f5f7;
-    border-radius: 20px;
-    margin-left: 30px;
+  display: flex;
+  width: 400px;
+  height: 40px;
+  background-color: #f3f5f7;
+  border-radius: 20px;
+  margin-left: 30px;
 }
 
 .search input {
-    border:0;
-    /* 使用父级颜色 */
-    background-color: transparent;
-    flex:1;
-    outline: none;
+  border: 0;
+  /* 使用父级颜色 */
+  background-color: transparent;
+  flex: 1;
+  outline: none;
 }
 
 /* 单独控制placeholder的属性 */
 .search input::placeholder {
-    color: #999;
-    font-size: 14px;
+  color: #999;
+  font-size: 14px;
 }
 /* 父级如果是flex容器，那子级默认变成 */
 .search a {
-    /* 侧轴居中 */
-    align-self: center;
-    width: 30px;
-    height: 30px;
-    background-image: url(../IMG/icon/dingwei.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+  /* 侧轴居中 */
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  background-image: url(../IMG/icon/dingwei.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* 用户名 */
 .user {
-  
-    margin-left: 40px;
-    align-self: center;
-    
+  margin-left: 40px;
+  align-self: center;
 }
 
 .user a {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .user img {
-    width: 30px;
-    height: 30px;
-    background-size: cover;
-    margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  margin-right: 5px;
 }
 
 .user span {
-    font-size: 14px;
-    color: #817d7d;
+  font-size: 14px;
+  color: #817d7d;
 }
 
 /* banner区域 */
 .banner {
-    height: 600px;
-    background-color: #0092cb;
+  height: 600px;
+  background-color: #0092cb;
 }
 
 .banner .wrapper {
-    display: flex;
-    justify-content: space-between;
-    background-image: url(../IMG/月光馆.jpg);
-    background-size: cover; 
-    background-repeat: no-repeat;   
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-image: url(../IMG/月光馆.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  height: 100%;
 }
 /* 侧导航 */
 .banner .wrapper .left {
-    width: 100px;
-    height: 600px;
-    padding: 0px 20px;
-    background-color: rgba(0,0,0,0.42);
-
+  width: 100px;
+  height: 600px;
+  padding: 0px 20px;
+  background-color: rgba(0, 0, 0, 0.42);
 }
 
-.banner .left a{
-    display: block; 
-    height: 66px;
-    line-height: 50px;
-    color: #fff;
-    font-size: 16px;
+.banner .left a {
+  display: block;
+  height: 66px;
+  line-height: 50px;
+  color: #fff;
+  font-size: 16px;
 }
-
+/* 暂时用mouseenter事件代替hover */
+/* 
 .banner .left a:hover {
-    color: #00a1d6;
+  color: #00a1d6;
+} */
+
+/* active默认的颜色 */
+.banner .left .active {
+  color: #00679f;
 }
 
 .banner .right {
-    margin-top: 60px;
-    margin-right: 20px;
+  margin-top: 60px;
+  margin-right: 20px;
 
-    width: 220px;
-    height: 310px;
-    background-color: #209dd5;
-    border-radius: 10px;
-
+  width: 220px;
+  height: 310px;
+  background-color: #209dd5;
+  border-radius: 10px;
 }
 
 .banner .right h3 {
-    color: #fff;
-    font-size: 16px;
-    /* line-height: 48px; */
-    padding: 20px;
-    font-weight: 400;
-
+  color: #fff;
+  font-size: 16px;
+  /* line-height: 48px; */
+  padding: 20px;
+  font-weight: 400;
 }
 
 .banner .right .content {
-    display: flex;
-    height: 250px;
-    justify-content: space-between;
-    padding: 0 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
+  display: flex;
+  height: 250px;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 .Carousel {
-    margin-top: 10px;
-
+  margin-top: 10px;
 }
 
 .Carousel .wrapper {
-
-    overflow: hidden;
-    transition: all 1s;
-    position: relative;
+  overflow: hidden;
+  transition: all 1s;
+  position: relative;
 }
 .Carousel .wrapper img {
-    width: 1200px;
-    height: 800px;
-    border-radius: 10px;
-    vertical-align: middle;
+  width: 1200px;
+  height: 800px;
+  border-radius: 10px;
+  vertical-align: middle;
 }
 
 .Carousel .wrapper ul {
-    display: flex;
-
+  display: flex;
 }
 /* 箭头默认隐藏 */
 .Carousel .prev,
 .Carousel .next {
-    display: none;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
 }
 /* 鼠标悬停在图片上就显示 */
 .Carousel .wrapper:hover .prev,
 .Carousel .wrapper:hover .next {
-    display: block;
+  display: block;
 }
 
 .Carousel .prev {
-    left: 0;
-    border-radius:0 25px 25px 0;   
-
+  left: 0;
+  border-radius: 0 25px 25px 0;
 }
 
 .Carousel .next {
-    right: 0;
-    border-radius: 25px 0 0 25px;
+  right: 0;
+  border-radius: 25px 0 0 25px;
 }
-
+/* 显示人物名的div */
+.Carousel_name p {
+  /* 居中显示 */
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 40px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 40px;
+  color: #00679f;
+  padding: 0px 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  /* 行内元素用padding无法改变垂直居中问题,设置为一样的高度就行 */
+  line-height: 40px;
+}
 /* 圆点 */
 .Carousel ol {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 13px;
-    background-color: rgb(255, 255, 255,0.3);
-    border-radius: 10px;
-    display: flex;
-
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 18px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 10px;
+  display: flex;
+  /* 因为转为弹性容器了,所以盒子要用align-items: center;来在垂直上居中 */
+  align-items: center;
 }
 
 .Carousel ol li {
-    width: 13px;
-    height: 13px;
-    background-color: #fff;
-    border-radius: 50%;
-    margin: 0 5px;/* 圆形 */
-    cursor: pointer;
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  /* 圆形 */
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
 }
-
+/* 默认高亮显示*(此案例为橙色) */
 .Carousel ol li.active {
-    background-color: #ff6700;
+  background-color: #ff6700;
 }
 /* 走马灯 */
-.marquee{
-    margin-top: 5px;
+.marquee {
+  margin-top: 5px;
 }
+
 .marquee .wrapper {
-
-    overflow: hidden;
-    border: #ff6700 3px solid;
-    border-radius: 10px;
-
+  /* 隐藏超出的部分 */
+  overflow: hidden;
+  border: #ff6700 3px solid;
+  border-radius: 10px;
 }
 /* 定义位移动画 */
 @keyframes marquee_move {
-    0% {
-        /* 其实下面这句可以省略,因为是默认的 */
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-3600px);
-    }
+  0% {
+    /* 其实下面这句可以省略,因为是默认的 */
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-3600px);
+  }
 }
 
-.marquee  img{
-    width: 400px;
-    height: 230px;
-
+.marquee img {
+  width: 400px;
+  height: 230px;
 }
 
 .marquee .wrapper ul {
-    animation: marquee_move 10s infinite linear ;
-    display: flex;
+  /* 给他附加一个动画,并设置参数 */
+  animation: marquee_move 10s infinite linear;
+  /* 弹性盒子布局 */
+  display: flex;
 }
 .marquee .wrapper li {
-    /* 不然ul会比img大一些 */
-   font-size: 0;
+  /* 不然ul会比img大一些 */
+  font-size: 0;
 }
 /* 设置悬停时,走马灯暂停 */
 .marquee .wrapper:hover ul {
-    animation-play-state: paused;
+  /* 暂停的写法 */
+  animation-play-state: paused;
 }
 
 /* 平移转换 */
 .transform .wrapper {
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
-.transform .img{
-    width: 100px;
-    height: 100px;
+.transform .img {
+  width: 100px;
+  height: 100px;
 }
 .transform .wrapper .plane,
 .transform .wrapper .threeDimensional {
-    transition: all 1.5s;
+  transition: all 1.5s;
 }
 
-.transform img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+.transform img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.transform .wrapper .plane:hover{
-    transform: translate(1200px,0px) rotate(720deg);
-    
+.transform .wrapper .plane:hover {
+  transform: translate(1200px, 0px) rotate(720deg);
 }
-.transform .wrapper .threeDimensional:hover  {
-    transform: rotate3d(1,1,1,720deg);
-    
+.transform .wrapper .threeDimensional:hover {
+  transform: rotate3d(1, 1, 1, 720deg);
 }
 /* 立体呈现 */
 .transform .threeDimensionalShow {
-    width: 150px;
-    height: 150px;
-    transform-style: preserve-3d;
-    position: relative;
-    transform: rotateY(90deg);
- 
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(90deg);
 }
-
 
 .transform #under {
-    position: absolute;
-    transform: translateZ(50px);
+  position: absolute;
+  transform: translateZ(50px);
 }
 .transform #above {
-    position: absolute;
-    transform: translateZ(-50px);
-
-
+  position: absolute;
+  transform: translateZ(-50px);
 }
-
