@@ -288,7 +288,7 @@
       });
 
 
-
+      //  写复杂了，可以用事件委托来实现
       // 设置下banner区域鼠标移入切换图片的效果,此时的nodelist存入了所有的li标签
       const banner_img_a = document.querySelectorAll('.banner .left  li a');
       const banner_img_a_all_p = document.querySelectorAll('.banner .left  li a p');
@@ -314,9 +314,11 @@
 
            // 更换文字颜色为角色主题色
            // 先清除所有颜色
+
            for(let j = 0;j < banner_img_a_all_p.length;j++){
             banner_img_a_all_p[j].style.color = '#fff';
           }
+          //nth-child最好用nodelist数组来实现，后续优化
           const banner_img_a_p = document.querySelector(`.banner .left  li:nth-child(${i+1})  p`);
           banner_img_a_p.style.color = img_list[i].color;
           
