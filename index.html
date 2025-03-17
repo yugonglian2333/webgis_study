@@ -14,7 +14,7 @@
     <!-- 先清除默认的设置，再搞css样式 -->
     <link rel="stylesheet" media="all" href="CSS/base.css" />
     <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="/icon/iconfont.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
 
   </head>
   <body>
@@ -184,7 +184,10 @@
     <div class="footer">
       <div class="wrapper">
         <p>版权所有：@yugonglian</p>
-        <p>备案号：114514</p>
+        <p>备案号：666666</p>
+        <div >
+          <p class="time">时间</p>
+        </div>
       </div>
     </div>
 
@@ -332,6 +335,45 @@
           console.log('添加成功');
           
       }
+
+
+      // 时间显示
+      const time_div = document.querySelector('.time');
+      // 定时器,每隔1秒更新时间
+      setInterval(function(){
+        const time = new Date();
+        //获得星期
+        const week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        const week_day = week[time.getDay()];
+        
+        // 格式化时间
+        const year = time.getFullYear();
+        const month = time.getMonth() + 1;//getMonth()返回0-11，所以要加1
+        const day = time.getDate();
+        const hour = time.getHours();
+        const minute = time.getMinutes();
+        const second = time.getSeconds();
+        const format_time = `${year}-${month}-${day} ${hour}:${minute}:${second} ${week_day}`;
+        time_div.innerHTML = format_time;
+        },1000);
+
+        // 时间戳
+        const timestamp = new Date().getTime();
+        // 将时间戳的毫秒数转为日期格式
+        const date = new Date(timestamp); 
+        const format_time = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        console.log('时间戳转为日期:');
+        console.log(format_time);
+        console.log('时间戳');
+        console.log(timestamp);
+
+          
+
+
+
+
+
+        
 
     </script>
   </body>
