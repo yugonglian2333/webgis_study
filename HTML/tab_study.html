@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      .tab {
+        width: 380px;
+        margin: 100px auto;
+      }
+
+      .tab_list {
+        height: 39px;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      .tab_list ul {
+        display: flex;
+      }
+      .tab_list ul li {
+        height: 39px;
+        line-height: 39px;
+        width: 25%;
+        text-align: center;
+        cursor: pointer;
+      }
+      /* 活动类 */
+      .tab_list .current {
+        background-color: #c81623;
+        color: #fff;
+      }
+
+      .item_info {
+        padding: 20px 0 0 20px;
+      }
+
+      .item {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="tab">
+      <div class="tab_list">
+        <ul>
+          <li class="current">栏目1</li>
+          <li>栏目2</li>
+          <li>栏目3</li>
+          <li>栏目4</li>
+        </ul>
+      </div>
+      <div class="tab_con">
+        <div class="item" style="display: block">床前明月光</div>
+        <div class="item">疑是地上霜</div>
+        <div class="item">举头望明月</div>
+        <div class="item">低头思故乡</div>
+      </div>
+    </div>
+    <script>
+      //1.模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想），修改类名
+      //获取元素
+      let tab_list = document.querySelector(".tab_list");
+      let lis = tab_list.querySelectorAll("li");
+      let items = document.querySelectorAll(".item");
+      //for循环绑定点击事件
+      // （可以换成事件委托）
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].setAttribute("index", i);
+        lis[i].onclick = function () {
+          //先清除其余li的类
+          for (let i = 0; i < lis.length; i++) {
+            lis[i].className = "";
+          }
+          //仅留下自己
+          this.className = "current";
+          //2.模块内容
+          let index = this.getAttribute("index");
+          //排他思想
+          for (let i = 0; i < items.length; i++) {
+            items[i].style.display = "none";
+          }
+          items[index].style.display = "block";
+        };
+      }
+    </script>
+  </body>
+</html>
