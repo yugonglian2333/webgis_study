@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 这是ajax的学习案例 -->
+
+    <script>
+      // 1. 创建XMLHttpRequest对象
+      var xhr = new XMLHttpRequest();
+      // 2. 注册回调函数
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // 3. 获取服务器返回的数据
+          var data = xhr.responseText;
+          // 4. 处理服务器返回的数据
+          console.log(data);
+        }
+      };
+      // 5. 发送请求
+      xhr.open("GET", "https://www.example.com/api/data");
+      xhr.send(); // 发送请求
+    </script>
+  </body>
+</html>
