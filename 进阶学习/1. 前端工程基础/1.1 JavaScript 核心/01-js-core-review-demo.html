@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 JavaScript 核心快速复习 Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: #172033;
+      background: #f5f7fb;
+    }
+
+    header {
+      padding: 28px 24px 22px;
+      color: #ffffff;
+      background: #17324d;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    header p {
+      max-width: 860px;
+      margin: 0;
+      color: #d7e5f5;
+      line-height: 1.7;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+      gap: 18px;
+      width: min(1180px, calc(100% - 32px));
+      margin: 20px auto 36px;
+    }
+
+    aside,
+    section {
+      border: 1px solid #d9e2ef;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    aside {
+      align-self: start;
+      overflow: hidden;
+    }
+
+    .panel-title {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid #e6edf6;
+      font-size: 17px;
+    }
+
+    .topic-list,
+    .function-list {
+      padding: 14px 18px 18px;
+    }
+
+    .topic-item,
+    .function-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #edf2f8;
+    }
+
+    .topic-item:last-child,
+    .function-item:last-child {
+      border-bottom: 0;
+    }
+
+    .topic-item strong,
+    .function-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #0f766e;
+      font-size: 14px;
+    }
+
+    .topic-item span,
+    .function-item span {
+      display: block;
+      color: #53657d;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .workspace {
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 18px;
+      border-bottom: 1px solid #e6edf6;
+      background: #fbfdff;
+    }
+
+    button {
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid #c8d6e8;
+      border-radius: 6px;
+      color: #17324d;
+      background: #ffffff;
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: #0f766e;
+      color: #0f766e;
+    }
+
+    button.primary {
+      border-color: #0f766e;
+      color: #ffffff;
+      background: #0f766e;
+    }
+
+    button.primary:hover {
+      background: #0b5f59;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .output {
+      min-height: 420px;
+      margin: 0;
+      padding: 16px;
+      overflow: auto;
+      border: 1px solid #d8e2ef;
+      border-radius: 8px;
+      color: #d8ecff;
+      background: #0b1623;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .live-box {
+      padding: 16px;
+      border: 1px solid #d8e2ef;
+      border-radius: 8px;
+      background: #f8fbff;
+    }
+
+    .live-box.active {
+      border-color: #0f766e;
+      background: #ecfdf5;
+    }
+
+    .live-box h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .live-box p {
+      margin: 0 0 12px;
+      color: #53657d;
+      line-height: 1.6;
+    }
+
+    .demo-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: #405168;
+      font-size: 14px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid #c8d6e8;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 14px;
+      background: #ffffff;
+    }
+
+    .status-line {
+      margin-top: 12px;
+      color: #0f766e;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      main,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JavaScript 核心快速复习 Demo</h1>
+    <p>这个页面把变量、函数、对象、数组、DOM、事件、异步、本地存储等知识点串在一起。点击按钮看输出，再对照 JS 文件里的函数。</p>
+  </header>
+
+  <main>
+    <aside>
+      <h2 class="panel-title">复习模块</h2>
+      <div id="topicList" class="topic-list"></div>
+    </aside>
+
+    <section class="workspace">
+      <h2 class="panel-title">可运行示例</h2>
+
+      <div class="toolbar">
+        <button class="primary" data-demo="all">全部运行</button>
+        <button data-demo="variables">变量类型</button>
+        <button data-demo="functions">函数作用域</button>
+        <button data-demo="objects">对象数组</button>
+        <button data-demo="tools">字符串日期数学</button>
+        <button data-demo="dom">DOM 事件</button>
+        <button data-demo="async">异步</button>
+        <button data-demo="storage">JSON 存储</button>
+        <button data-demo="error">错误处理</button>
+        <button data-action="clear">清空输出</button>
+      </div>
+
+      <div class="content">
+        <pre id="output" class="output">点击上方按钮开始复习。</pre>
+
+        <div>
+          <div id="liveBox" class="live-box" data-module="DOM">
+            <h2>DOM 与事件区域</h2>
+            <p id="liveText">这里会被 JavaScript 动态修改。</p>
+
+            <div class="demo-form">
+              <label>
+                图层名称
+                <input id="layerNameInput" type="text" value="城市道路">
+              </label>
+
+              <label>
+                图层类型
+                <select id="layerTypeSelect">
+                  <option value="vector">矢量图层</option>
+                  <option value="raster">栅格图层</option>
+                  <option value="terrain">地形图层</option>
+                </select>
+              </label>
+
+              <button id="previewLayerBtn" type="button">预览图层对象</button>
+            </div>
+
+            <div id="statusLine" class="status-line">等待操作。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <h2 class="panel-title">函数索引</h2>
+      <div id="functionList" class="function-list"></div>
+    </aside>
+  </main>
+
+  <script src="./01-js-core-review-demo.js"></script>
+</body>
+</html>
