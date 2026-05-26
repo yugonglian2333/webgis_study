@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 快速入门：MDN 简化学习版</title>
+    <style>
+      :root {
+        --bg: #f7f7f2;
+        --paper: #ffffff;
+        --ink: #202124;
+        --muted: #626b73;
+        --line: #d8ddd6;
+        --accent: #0f766e;
+        --accent-strong: #0b5f59;
+        --accent-soft: #d9f1ee;
+        --warm: #f4b860;
+        --code-bg: #171a1f;
+        --code-ink: #eef4f8;
+        --good: #166534;
+        --skip: #9a3412;
+        --radius: 8px;
+        --shadow: 0 20px 45px rgba(25, 40, 36, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+        line-height: 1.75;
+        background:
+          linear-gradient(120deg, rgba(15, 118, 110, 0.08), transparent 35%),
+          linear-gradient(300deg, rgba(244, 184, 96, 0.16), transparent 40%),
+          var(--bg);
+      }
+
+      a {
+        color: var(--accent-strong);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .page {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 28px;
+        width: min(1280px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 24px 0 56px;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 18px;
+        height: calc(100vh - 36px);
+        padding: 22px;
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .toc {
+        display: grid;
+        gap: 4px;
+        margin-top: 18px;
+      }
+
+      .toc a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 6px;
+        color: #2c3438;
+        font-size: 14px;
+      }
+
+      .toc a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .content {
+        min-width: 0;
+      }
+
+      .hero,
+      section,
+      .source-box {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: clamp(28px, 5vw, 56px);
+        min-height: 390px;
+        display: grid;
+        align-content: center;
+        gap: 24px;
+      }
+
+      .hero h1 {
+        max-width: 880px;
+        margin: 0;
+        font-size: clamp(34px, 6vw, 72px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        background: var(--accent-strong);
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        border-color: var(--line);
+        background: #fff;
+        color: var(--accent-strong);
+      }
+
+      .button.secondary:hover {
+        background: var(--accent-soft);
+      }
+
+      section {
+        margin-top: 22px;
+        padding: clamp(22px, 4vw, 38px);
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 28px 0 10px;
+        font-size: 21px;
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+
+      h4 {
+        margin: 20px 0 8px;
+        font-size: 17px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      .lead {
+        max-width: 860px;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .note,
+      .mini-card,
+      .practice,
+      .example-box {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fbfcfa;
+      }
+
+      .mini-card {
+        padding: 18px;
+      }
+
+      .mini-card h3,
+      .mini-card h4 {
+        margin-top: 0;
+      }
+
+      .note {
+        margin: 16px 0;
+        padding: 14px 16px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .note.warning {
+        border-left-color: var(--warm);
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 14px 0 0;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .tag.skip {
+        background: #fff0df;
+        color: var(--skip);
+      }
+
+      ul,
+      ol {
+        padding-left: 1.3em;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      code {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: #edf1ef;
+        color: #20322f;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.95em;
+      }
+
+      pre {
+        position: relative;
+        margin: 14px 0;
+        overflow: auto;
+        border-radius: var(--radius);
+        background: var(--code-bg);
+        color: var(--code-ink);
+      }
+
+      pre code {
+        display: block;
+        padding: 18px;
+        background: transparent;
+        color: inherit;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .code-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .copy {
+        min-width: 72px;
+        min-height: 30px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: #fff;
+        color: var(--accent-strong);
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        margin-top: 16px;
+      }
+
+      table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+        background: #fff;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #eef4f2;
+      }
+
+      .path {
+        display: grid;
+        gap: 12px;
+        counter-reset: path;
+      }
+
+      .path-item {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fbfcfa;
+      }
+
+      .path-item::before {
+        counter-increment: path;
+        content: counter(path);
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .path-item h3 {
+        margin: 0 0 4px;
+      }
+
+      .path-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .practice {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 14px;
+        padding: 16px;
+        margin-top: 16px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 210px;
+        resize: vertical;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #111827;
+        color: #f8fafc;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .output {
+        min-height: 210px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+
+      .output h4 {
+        margin-top: 0;
+      }
+
+      .demo-title {
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .checklist {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .checklist label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .checklist input {
+        margin-top: 6px;
+      }
+
+      .source-box {
+        margin-top: 22px;
+        padding: 24px;
+      }
+
+      .footer {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .kbd {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 0 7px;
+        border: 1px solid #cfd7d2;
+        border-bottom-width: 2px;
+        border-radius: 5px;
+        background: #fff;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 13px;
+      }
+
+      @media (max-width: 980px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+        }
+
+        .toc {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid,
+        .grid.two,
+        .practice {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          width: min(100% - 20px, 1280px);
+          padding-top: 10px;
+        }
+
+        .toc {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: 320px;
+        }
+
+        .hero p,
+        .lead {
+          font-size: 16px;
+        }
+
+        section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="brand">
+          <strong>JavaScript 快速入门</strong>
+          <span>根据 MDN JavaScript 文档整理。目标不是背完整手册，而是先能看懂、能写、能改网页交互。</span>
+        </div>
+        <nav class="toc" aria-label="页面目录">
+          <a href="#start">先建立整体印象</a>
+          <a href="#where">JS 写在哪里</a>
+          <a href="#values">变量与数据</a>
+          <a href="#logic">判断、循环、函数</a>
+          <a href="#dom">DOM 与事件</a>
+          <a href="#objects">对象和常用内置工具</a>
+          <a href="#errors">报错与调试</a>
+          <a href="#later">哪些先跳过</a>
+          <a href="#map">MDN 内容地图</a>
+          <a href="#practice">练习路线</a>
+          <a href="#sources">原始资料</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="hero" id="top">
+          <h1>把 JavaScript 先学成一把能用的小工具</h1>
+          <p>
+            MDN 写得很完整，但初学阶段不需要一次吃完整本语言手册。这份页面把 MDN 的 JavaScript
+            主题页、初学者教程、指南和参考内容，整理成“先上手”的学习顺序。
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#start">开始阅读</a>
+            <a class="button secondary" href="#practice">直接看练习</a>
+          </div>
+        </header>
+
+        <section id="start">
+          <h2>先建立整体印象</h2>
+          <p class="lead">
+            JavaScript，简称 JS，是网页里的“行为层”。HTML 负责页面有什么，CSS 负责它长什么样，
+            JS 负责用户操作之后发生什么。
+          </p>
+
+          <div class="grid">
+            <article class="mini-card">
+              <h3>HTML</h3>
+              <p>像骨架。它告诉浏览器：这里有标题、段落、图片、按钮、表单。</p>
+            </article>
+            <article class="mini-card">
+              <h3>CSS</h3>
+              <p>像衣服和排版。它控制颜色、大小、位置、间距、动画。</p>
+            </article>
+            <article class="mini-card">
+              <h3>JavaScript</h3>
+              <p>像动作和逻辑。它处理点击、输入、计算、切换内容、请求数据。</p>
+            </article>
+          </div>
+
+          <div class="note">
+            <strong>先这样理解：</strong>
+            JS 不是只能写网页，也可以运行在 Node.js 等环境里。但你现在学 WebGIS 和前端，先把“在浏览器里控制网页”这条线学清楚。
+          </div>
+
+          <h3>你第一阶段的目标</h3>
+          <ul>
+            <li>能读懂简单 JS 代码。</li>
+            <li>能声明变量、判断条件、循环处理数组。</li>
+            <li>能写函数，把重复逻辑打包。</li>
+            <li>能找到网页元素，并在点击、输入后修改页面。</li>
+            <li>能打开控制台，看报错，知道大概错在哪里。</li>
+          </ul>
+        </section>
+
+        <section id="where">
+          <h2>JS 写在哪里</h2>
+          <p class="lead">初学时你会遇到三种写法。建议先用第 2 种，清楚、稳定、好维护。</p>
+
+          <h3>1. 写在 HTML 文件的 script 标签里</h3>
+          <p>适合小练习。通常放在 <code>&lt;/body&gt;</code> 前面，这样页面元素已经加载出来了。</p>
+          <div class="code-title">
+            <span>HTML 中直接写 JS</span>
+            <button class="copy" type="button">复制</button>
+          </div>
+          <pre><code>&lt;button id="btn"&gt;点我&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.querySelector("#btn");
+
+  btn.addEventListener("click", function () {
+    alert("按钮被点击了");
+  });
+&lt;/script&gt;</code></pre>
+
+          <h3>2. 写在单独的 .js 文件里</h3>
+          <p>适合正式一点的页面。HTML 管结构，CSS 管样式，JS 管交互。</p>
+          <div class="code-title">
+            <span>推荐写法</span>
+            <button class="copy" type="button">复制</button>
+          </div>
+          <pre><code>&lt;script src="./main.js"&gt;&lt;/script&gt;</code></pre>
+
+          <h3>3. 浏览器控制台里临时写</h3>
+          <p>适合测试一句代码。打开页面后按 <span class="kbd">F12</span>，进入 Console，就可以输入：</p>
+          <pre><code>console.log("你好，JavaScript");</code></pre>
+        </section>
+
+        <section id="values">
+          <h2>变量与数据</h2>
+          <p class="lead">写程序的第一件事，是把数据存起来。变量就是给数据取名字。</p>
+
+          <h3>变量：用 const 和 let</h3>
+          <div class="code-title">
+            <span>变量基本写法</span>
+            <button class="copy" type="button">复制</button>
+          </div>
+          <pre><code>const city = "北京";  // 不打算重新赋值，用 const
+let zoom = 12;       // 以后可能会变，用 let
+
+zoom = 14;</code></pre>
+
+          <div class="note warning">
+            <strong>先别用 var：</strong>
+            MDN 会介绍 <code>var</code>，因为它是 JS 历史的一部分。但初学阶段先用
+            <code>const</code> 和 <code>let</code>，更接近现代写法，也更少踩坑。
+          </div>
+
+          <h3>常见数据类型</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>类型</th>
+                  <th>例子</th>
+                  <th>先这样理解</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>字符串 String</td>
+                  <td><code>"WebGIS"</code></td>
+                  <td>文字。用引号包起来。</td>
+                </tr>
+                <tr>
+                  <td>数字 Number</td>
+                  <td><code>12</code>、<code>3.14</code></td>
+                  <td>整数、小数都可以。</td>
+                </tr>
+                <tr>
+                  <td>布尔 Boolean</td>
+                  <td><code>true</code>、<code>false</code></td>
+                  <td>只有真和假，常用于判断。</td>
+                </tr>
+                <tr>
+                  <td>空值 null</td>
+                  <td><code>null</code></td>
+                  <td>主动表示“这里现在没有值”。</td>
+                </tr>
+                <tr>
+                  <td>未定义 undefined</td>
+                  <td><code>let name;</code></td>
+                  <td>声明了，但还没给值。</td>
+                </tr>
+                <tr>
+                  <td>数组 Array</td>
+                  <td><code>["北京", "上海"]</code></td>
+                  <td>一组有顺序的数据。</td>
+                </tr>
+                <tr>
+                  <td>对象 Object</td>
+                  <td><code>{ name: "图层", visible: true }</code></td>
+                  <td>一组带名字的属性，适合描述一个东西。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>字符串、数字、数组的常用动作</h3>
+          <div class="grid">
+            <article class="mini-card">
+              <h4>字符串</h4>
+              <pre><code>const name = "地图";
+console.log(name.length);
+console.log(`学习${name}`);</code></pre>
+            </article>
+            <article class="mini-card">
+              <h4>数字</h4>
+              <pre><code>const price = 20;
+const count = 3;
+console.log(price * count);</code></pre>
+            </article>
+            <article class="mini-card">
+              <h4>数组</h4>
+              <pre><code>const layers = ["道路", "建筑"];
+layers.push("河流");
+console.log(layers[0]);</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section id="logic">
+          <h2>判断、循环、函数</h2>
+          <p class="lead">这三块是 JS 的基础骨架：根据条件选择，重复处理数据，把代码打包复用。</p>
+
+          <h3>判断：if...else</h3>
+          <p>当某个条件成立时，执行一段代码；不成立时，执行另一段代码。</p>
+          <div class="code-title">
+            <span>判断成绩</span>
+            <button class="copy" type="button">复制</button>
+          </div>
+          <pre><code>const score = 82;
+
+if (score >= 90) {
+  console.log("优秀");
+} else if (score >= 60) {
+  console.log("及格");
+} else {
+  console.log("需要继续练习");
+}</code></pre>
+
+          <h3>循环：for...of</h3>
+          <p>当你有一组数据，要逐个处理时，用循环。</p>
+          <pre><code>const cities = ["北京", "上海", "广州"];
+
+for (const city of cities) {
+  console.log(city);
+}</code></pre>
+
+          <h3>函数：给一段逻辑起名字</h3>
+          <p>函数可以接收参数，处理后返回结果。它最大的好处是：重复使用时不用复制粘贴。</p>
+          <pre><code>function getTotal(price, count) {
+  return price * count;
+}
+
+const total = getTotal(20, 3);
+console.log(total);</code></pre>
+
+          <h3>常用运算符</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>类型</th>
+                  <th>常见写法</th>
+                  <th>意思</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>算术</td>
+                  <td><code>+ - * / %</code></td>
+                  <td>加、减、乘、除、取余。</td>
+                </tr>
+                <tr>
+                  <td>比较</td>
+                  <td><code>&gt; &lt; &gt;= &lt;= === !==</code></td>
+                  <td>判断大小、是否严格相等、是否不相等。</td>
+                </tr>
+                <tr>
+                  <td>逻辑</td>
+                  <td><code>&amp;&amp; || !</code></td>
+                  <td>并且、或者、取反。</td>
+                </tr>
+                <tr>
+                  <td>赋值</td>
+                  <td><code>= += -=</code></td>
+                  <td>保存值，或者在原值基础上改变。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="note">
+            <strong>记住一个好习惯：</strong>
+            判断相等时优先用 <code>===</code>，它比 <code>==</code> 更直接，不容易因为自动类型转换而出现奇怪结果。
+          </div>
+        </section>
+
+        <section id="dom">
+          <h2>DOM 与事件</h2>
+          <p class="lead">
+            只学语法还不够。网页里的 JS 最常见任务，是找到页面元素，然后在用户操作后修改它。
+          </p>
+
+          <h3>DOM 是什么</h3>
+          <p>
+            浏览器会把 HTML 页面变成一棵可以被 JS 操作的结构，这个结构叫 DOM。你可以把它理解成：
+            JS 看到的网页对象模型。
+          </p>
+
+          <h3>三步写出网页交互</h3>
+          <div class="path">
+            <div class="path-item">
+              <div>
+                <h3>找到元素</h3>
+                <p>用 <code>document.querySelector()</code> 选择页面上的标签。</p>
+              </div>
+            </div>
+            <div class="path-item">
+              <div>
+                <h3>监听事件</h3>
+                <p>用 <code>addEventListener()</code> 等待用户点击、输入、移动鼠标。</p>
+              </div>
+            </div>
+            <div class="path-item">
+              <div>
+                <h3>修改页面</h3>
+                <p>改文字、样式、类名、属性，或者添加新的元素。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-title">
+            <span>点击按钮修改标题</span>
+            <button class="copy" type="button">复制</button>
+          </div>
+          <pre><code>&lt;h1 id="title"&gt;你好，JavaScript&lt;/h1&gt;
+&lt;button id="btn"&gt;修改标题&lt;/button&gt;
+
+&lt;script&gt;
+  const title = document.querySelector("#title");
+  const btn = document.querySelector("#btn");
+
+  btn.addEventListener("click", function () {
+    title.textContent = "我已经开始学 JS 了";
+    title.style.color = "teal";
+  });
+&lt;/script&gt;</code></pre>
+
+          <div class="example-box" style="padding: 16px; margin-top: 16px">
+            <p id="liveTitle" style="font-weight: 800">这里是一段可以被 JS 修改的文字</p>
+            <button class="button" id="changeTitle" type="button">试着点击</button>
+          </div>
+        </section>
+
+        <section id="objects">
+          <h2>对象和常用内置工具</h2>
+          <p class="lead">
+            MDN 的“参考”部分很大，里面列了很多标准内置对象。初学时不用全背，只需要知道哪些经常用，哪些以后查。
+          </p>
+
+          <h3>对象：描述一个东西</h3>
+          <pre><code>const layer = {
+  name: "道路图层",
+  visible: true,
+  opacity: 0.8
+};
+
+console.log(layer.name);
+console.log(layer["opacity"]);</code></pre>
+
+          <h3>常用内置对象速查</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>工具</th>
+                  <th>什么时候用</th>
+                  <th>例子</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Array</code></td>
+                  <td>处理一组数据。</td>
+                  <td><code>list.push(item)</code>、<code>list.length</code></td>
+                </tr>
+                <tr>
+                  <td><code>String</code></td>
+                  <td>处理文字。</td>
+                  <td><code>text.includes("JS")</code></td>
+                </tr>
+                <tr>
+                  <td><code>Number</code></td>
+                  <td>处理数字。</td>
+                  <td><code>Number("12")</code></td>
+                </tr>
+                <tr>
+                  <td><code>Math</code></td>
+                  <td>数学计算。</td>
+                  <td><code>Math.round(3.6)</code></td>
+                </tr>
+                <tr>
+                  <td><code>Date</code></td>
+                  <td>处理日期和时间。</td>
+                  <td><code>new Date()</code></td>
+                </tr>
+                <tr>
+                  <td><code>JSON</code></td>
+                  <td>网页和服务器交换数据时常用。</td>
+                  <td><code>JSON.parse(text)</code></td>
+                </tr>
+                <tr>
+                  <td><code>Object</code></td>
+                  <td>处理普通对象。</td>
+                  <td><code>Object.keys(user)</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">先学 Array</span>
+            <span class="tag">先学 String</span>
+            <span class="tag">先学 Object</span>
+            <span class="tag">先学 JSON</span>
+            <span class="tag skip">Map / Set 后面学</span>
+            <span class="tag skip">WeakMap / WeakSet 先跳过</span>
+            <span class="tag skip">TypedArray 先跳过</span>
+          </div>
+        </section>
+
+        <section id="errors">
+          <h2>报错与调试</h2>
+          <p class="lead">会调试，比一开始就写对更重要。初学 JS，报错不是坏事，它是在告诉你哪里需要看一眼。</p>
+
+          <h3>先认识三类常见错误</h3>
+          <div class="grid">
+            <article class="mini-card">
+              <h4>SyntaxError</h4>
+              <p>语法错，比如少了括号、引号、花括号。</p>
+            </article>
+            <article class="mini-card">
+              <h4>ReferenceError</h4>
+              <p>变量找不到，比如名字拼错，或者还没声明就使用。</p>
+            </article>
+            <article class="mini-card">
+              <h4>TypeError</h4>
+              <p>类型不对，比如把不是函数的东西当函数调用。</p>
+            </article>
+          </div>
+
+          <h3>调试流程</h3>
+          <ol>
+            <li>打开浏览器控制台，看红色报错。</li>
+            <li>先看报错文件名和行号。</li>
+            <li>在可疑位置前后加 <code>console.log()</code>。</li>
+            <li>确认变量值是不是你以为的那个值。</li>
+            <li>一次只改一个问题，刷新页面再看。</li>
+          </ol>
+
+          <pre><code>const userName = "小明";
+console.log("当前用户名：", userName);</code></pre>
+        </section>
+
+        <section id="later">
+          <h2>哪些先跳过</h2>
+          <p class="lead">MDN 是完整文档，不是初学清单。下面这些先知道名字，不急着深入。</p>
+
+          <div class="grid two">
+            <article class="mini-card">
+              <h3>暂时跳过</h3>
+              <ul>
+                <li>原型链和继承</li>
+                <li>闭包的深入细节</li>
+                <li><code>this</code> 的复杂规则</li>
+                <li>生成器和迭代器</li>
+                <li>元编程、Proxy、Reflect</li>
+                <li>内存管理和事件循环底层细节</li>
+              </ul>
+            </article>
+            <article class="mini-card">
+              <h3>稍后再学</h3>
+              <ul>
+                <li>Promise、async/await</li>
+                <li>模块 import/export</li>
+                <li>class 类</li>
+                <li>正则表达式</li>
+                <li>Fetch API 请求数据</li>
+                <li>React、Vue 等框架</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="note">
+            <strong>学习顺序建议：</strong>
+            先写会“点击按钮改变页面”，再写会“读取数组生成列表”，然后再学“请求服务器数据”。这样比较稳。
+          </div>
+        </section>
+
+        <section id="map">
+          <h2>MDN 内容地图：你现在怎么看</h2>
+          <p class="lead">MDN 的 JavaScript 页面大致有教程、指南、参考三层。下面是我帮你翻译成学习路线后的版本。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>MDN 区域</th>
+                  <th>它原本在讲什么</th>
+                  <th>你现在怎么处理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>面向纯新手</td>
+                  <td>JS 是什么、变量、字符串、数字、数组、条件、循环、函数、事件。</td>
+                  <td>重点学。这就是当前主线。</td>
+                </tr>
+                <tr>
+                  <td>JavaScript 指南</td>
+                  <td>更系统地讲语法、数据类型、控制流、函数、对象、类、Promise、模块等。</td>
+                  <td>先读语法、数据类型、控制流、循环、函数、对象。后面的先留着。</td>
+                </tr>
+                <tr>
+                  <td>中级</td>
+                  <td>语言概述、数据结构、相等比较、闭包等。</td>
+                  <td>只提前记住 <code>===</code>。闭包和复杂数据结构以后再看。</td>
+                </tr>
+                <tr>
+                  <td>高级</td>
+                  <td>继承、原型链、元编程、内存管理、事件循环。</td>
+                  <td>先跳过。等你能写小项目后再回来读。</td>
+                </tr>
+                <tr>
+                  <td>参考</td>
+                  <td>像字典一样列出对象、运算符、语句、函数、类、错误。</td>
+                  <td>不要从头读。遇到不会的关键字再查。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>把 MDN 参考当字典</h3>
+          <p>
+            例如你看到 <code>Array.prototype.map()</code> 不懂，就去 MDN 搜它；你看到
+            <code>try...catch</code> 不懂，也去查。参考文档不是小说，不需要按顺序读。
+          </p>
+        </section>
+
+        <section id="practice">
+          <h2>练习路线</h2>
+          <p class="lead">不要只看。每看完一小节，就写一个特别小的例子。下面这个运行器可以临时试几句 JS。</p>
+
+          <div class="practice">
+            <div>
+              <div class="demo-title">在这里改代码，然后点“运行”</div>
+              <textarea id="playground">const cities = ["北京", "上海", "广州"];
+
+for (const city of cities) {
+  print("城市：" + city);
+}</textarea>
+              <div style="margin-top: 10px">
+                <button class="button" id="runCode" type="button">运行</button>
+                <button class="button secondary" id="resetCode" type="button">重置</button>
+              </div>
+            </div>
+            <div class="output">
+              <h4>输出结果</h4>
+              <div id="playgroundOutput" class="small">运行结果会显示在这里。</div>
+            </div>
+          </div>
+
+          <h3>7 天快速入门安排</h3>
+          <div class="checklist">
+            <label><input type="checkbox" /> 第 1 天：会写 <code>console.log()</code>，会声明 <code>const</code> 和 <code>let</code>。</label>
+            <label><input type="checkbox" /> 第 2 天：会用字符串、数字、布尔值，知道数组和对象长什么样。</label>
+            <label><input type="checkbox" /> 第 3 天：会写 <code>if...else</code>，能根据条件显示不同结果。</label>
+            <label><input type="checkbox" /> 第 4 天：会循环数组，能把一组数据逐条打印出来。</label>
+            <label><input type="checkbox" /> 第 5 天：会写函数，能把计算逻辑封装起来。</label>
+            <label><input type="checkbox" /> 第 6 天：会用 <code>querySelector</code> 找元素，并修改文字或样式。</label>
+            <label><input type="checkbox" /> 第 7 天：做一个小页面：点击按钮添加列表项，或者切换地图图层名称。</label>
+          </div>
+
+          <h3>三个小项目</h3>
+          <ol>
+            <li>购物清单：输入商品名，点击按钮后添加到列表。</li>
+            <li>图片切换：点击上一张、下一张，切换图片和标题。</li>
+            <li>图层控制：准备几个图层对象，点击按钮切换显示状态文字。</li>
+          </ol>
+        </section>
+
+        <div class="source-box" id="sources">
+          <h2>原始资料</h2>
+          <p>
+            本页面是学习用改写版，不是 MDN 全文复制。需要查完整解释和 API 细节时，回到这些原始页面：
+          </p>
+          <ul>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN：JavaScript 主题页</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting">MDN：动态脚本编程</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide">MDN：JavaScript 指南</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference">MDN：JavaScript 参考</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector">MDN：document.querySelector()</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener">MDN：addEventListener()</a></li>
+          </ul>
+        </div>
+
+        <p class="footer">
+          建议使用方式：先从上往下读一遍，然后每天只改一小段代码。能改动页面，就说明 JS 正在变成你的工具。
+        </p>
+      </main>
+    </div>
+
+    <script>
+      const copyButtons = document.querySelectorAll(".copy");
+
+      copyButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const codeBlock = button.parentElement.nextElementSibling;
+          const code = codeBlock ? codeBlock.innerText : "";
+
+          navigator.clipboard
+            .writeText(code)
+            .then(function () {
+              button.textContent = "已复制";
+              setTimeout(function () {
+                button.textContent = "复制";
+              }, 1200);
+            })
+            .catch(function () {
+              button.textContent = "复制失败";
+              setTimeout(function () {
+                button.textContent = "复制";
+              }, 1200);
+            });
+        });
+      });
+
+      const liveTitle = document.querySelector("#liveTitle");
+      const changeTitle = document.querySelector("#changeTitle");
+      let clickCount = 0;
+
+      changeTitle.addEventListener("click", function () {
+        clickCount += 1;
+        liveTitle.textContent = "你已经点击了 " + clickCount + " 次，页面文字被 JS 改掉了。";
+        liveTitle.style.color = clickCount % 2 === 0 ? "#0f766e" : "#9a3412";
+      });
+
+      const defaultCode = `const cities = ["北京", "上海", "广州"];
+
+for (const city of cities) {
+  print("城市：" + city);
+}`;
+
+      const playground = document.querySelector("#playground");
+      const output = document.querySelector("#playgroundOutput");
+      const runCode = document.querySelector("#runCode");
+      const resetCode = document.querySelector("#resetCode");
+
+      function runPlayground() {
+        const logs = [];
+        const print = function () {
+          logs.push(Array.from(arguments).join(" "));
+        };
+
+        try {
+          const runner = new Function("print", playground.value);
+          runner(print);
+          output.textContent = logs.length > 0 ? logs.join("\n") : "代码运行了，但没有输出。可以使用 print() 输出内容。";
+          output.style.whiteSpace = "pre-wrap";
+          output.style.color = "#202124";
+        } catch (error) {
+          output.textContent = error.name + ": " + error.message;
+          output.style.whiteSpace = "pre-wrap";
+          output.style.color = "#b91c1c";
+        }
+      }
+
+      runCode.addEventListener("click", runPlayground);
+      resetCode.addEventListener("click", function () {
+        playground.value = defaultCode;
+        runPlayground();
+      });
+    </script>
+  </body>
+</html>

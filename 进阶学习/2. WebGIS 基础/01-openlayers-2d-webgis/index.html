@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenLayers 二维 WebGIS 入门案例</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.9.0/ol.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="WebGIS 控制面板">
+        <section class="brand">
+          <div class="brand-mark">GIS</div>
+          <div>
+            <h1>二维 WebGIS 入门</h1>
+            <p>OpenLayers 图层、要素、交互与弹窗</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>地图操作</h2>
+          <div class="button-row">
+            <button id="zoom-to-china" type="button">定位中国</button>
+            <button id="fit-features" type="button">缩放到示例数据</button>
+          </div>
+          <p class="hint">滚轮缩放地图，按住鼠标左键拖拽平移。</p>
+        </section>
+
+        <section class="panel">
+          <h2>图层控制</h2>
+          <label class="field-label" for="base-map-select">底图来源</label>
+          <select id="base-map-select">
+            <option value="amap">高德道路底图（默认）</option>
+            <option value="osm">OpenStreetMap</option>
+            <option value="none">不显示底图</option>
+          </select>
+          <label class="switch-row">
+            <input id="toggle-base-map" type="checkbox" checked />
+            <span>显示底图</span>
+          </label>
+          <label class="switch-row">
+            <input id="toggle-samples" type="checkbox" checked />
+            <span>显示示例矢量图层</span>
+          </label>
+          <label class="range-row">
+            <span>底图透明度</span>
+            <input id="base-map-opacity" type="range" min="0" max="1" step="0.05" value="1" />
+          </label>
+          <p id="base-map-status" class="hint">当前底图：高德道路底图。</p>
+        </section>
+
+        <section class="panel">
+          <h2>绘制编辑</h2>
+          <label class="field-label" for="draw-type">绘制类型</label>
+          <select id="draw-type">
+            <option value="None">关闭绘制</option>
+            <option value="Point">点</option>
+            <option value="LineString">线</option>
+            <option value="Polygon">面</option>
+          </select>
+          <div class="button-row">
+            <button id="clear-drawings" type="button">清空绘制</button>
+          </div>
+          <p id="measure-output" class="measure-output">选择线或面后开始绘制，可查看长度或面积。</p>
+        </section>
+
+        <section class="panel feature-panel">
+          <h2>示例要素</h2>
+          <ul id="feature-list" class="feature-list"></ul>
+        </section>
+      </aside>
+
+      <section class="map-stage" aria-label="地图区">
+        <div id="map" class="map"></div>
+
+        <div class="map-toolbar" aria-label="地图状态">
+          <span id="pointer-coordinate">经纬度：--</span>
+          <span id="zoom-level">缩放级别：--</span>
+        </div>
+
+        <div id="popup" class="popup" role="dialog" aria-live="polite">
+          <button id="popup-closer" class="popup-closer" type="button" aria-label="关闭弹窗">×</button>
+          <div id="popup-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
